@@ -1,10 +1,11 @@
 const express = require('express');
+require("dotenv").config();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const empRoutes = require("./routes/employeesRoutes.js")
 const userRoutes = require("./routes/usersRoutes.js")
-const SERVER_PORT = 8081
-const DB_CONNECTION_STRING = "mongodb+srv://marie:vianca0410@cluster0.cmkzudn.mongodb.net/comp3123_assignment1?retryWrites=true&w=majority"
+const SERVER_PORT = process.env.PORT
+const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
