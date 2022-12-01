@@ -1,6 +1,5 @@
 const express = require('express');
 require("dotenv").config();
-require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const empRoutes = require("./routes/employeesRoutes.js")
@@ -23,7 +22,6 @@ mongoose.connect(DB_CONNECTION_STRING, {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
 });
-app.use(cors())
 app.use('/api/user/', userRoutes);
 app.use('/api/emp/', empRoutes);
 app.get('/', (req, res) => {
